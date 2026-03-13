@@ -129,3 +129,27 @@ plt.grid(True)
 plt.legend()
 plt.tight_layout()
 plt.show()
+
+plt.figure(figsize=(8, 8))
+pos = nx.spring_layout(graph, seed=42) # get pos for each node using spring layout so cleaner
+node_vals = [colours[node] for node in graph.nodes()]
+
+nodes = nx.draw_networkx_nodes(
+    graph,
+    pos,
+    node_color=node_vals,
+    cmap=plt.cm.tab10, # map colour IDs to colours
+    node_size=300,
+)
+nx.draw_networkx_edges(graph, pos, alpha=0.5)
+nx.draw_networkx_labels(graph, pos)
+
+cbar = plt.colorbar(nodes)
+cbar.set_label("Colour ID")
+if num_colours > 1:
+    nodes.set_clim(0, num_colours - 1) # set colour limits for colourbar
+
+plt.title("Final Graph Colouring")
+plt.axis("off")
+plt.tight_layout()
+plt.show()
