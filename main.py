@@ -91,7 +91,7 @@ def run_simulation(graph, colours, n_colours, max_steps):
 
         # if no conflicts it is solved
         if not conflicting_nodes:
-            print(f"\n\nSolved, No conflicts remaining after {i} steps.")
+            print(f"\nSolved, No conflicts remaining after {i} steps.")
             break
 
 
@@ -109,7 +109,7 @@ def run_simulation(graph, colours, n_colours, max_steps):
 
     else:
         # max iterations condition
-        print(f"\n\nReached max steps ({max_steps}).")
+        print(f"\nReached max steps ({max_steps}).")
         print(f"Final conflicts: {conflict_history[-1]}")
 
     return current_colours, conflict_history
@@ -132,7 +132,7 @@ plt.show()
 
 plt.figure(figsize=(8, 8))
 pos = nx.spring_layout(graph, seed=42) # get pos for each node using spring layout so cleaner
-node_vals = [colours[node] for node in graph.nodes()]
+node_vals = [final_colours[node] for node in graph.nodes()]
 
 nodes = nx.draw_networkx_nodes(
     graph,
