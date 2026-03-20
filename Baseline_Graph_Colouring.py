@@ -8,7 +8,6 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import random
 
-
 # set random seed for reproducibility
 random.seed(42)
 
